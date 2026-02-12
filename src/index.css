@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 97%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 18 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 15%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 18 100% 95%;
+    --accent-foreground: 18 80% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 18 100% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 10% 30%;
+    --sidebar-primary: 18 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 18 100% 95%;
+    --sidebar-accent-foreground: 18 80% 40%;
+    --sidebar-border: 220 13% 93%;
+    --sidebar-ring: 18 100% 60%;
+
+    /* Custom app tokens */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 45 93% 15%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --shadow-soft: 0 4px 20px -2px hsla(0, 0%, 0%, 0.05);
+    --shadow-card: 0 2px 10px hsla(0, 0%, 0%, 0.03);
+    --shadow-neon: 0 0 10px hsla(18, 100%, 60%, 0.3);
+    --shadow-float: 0 10px 30px -10px hsla(18, 100%, 60%, 0.4);
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 88%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 88%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 88%;
+
+    --primary: 18 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 88%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 63%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 88%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 88%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 18 100% 60%;
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 18 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 18 100% 60%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 10%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: clamp(14px, 0.75rem + 0.35vw, 16px);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Responsive micro text: scales from mobile to desktop */
+.text-micro { font-size: clamp(8px, 0.45rem + 0.15vw, 10px); }
+.text-micro-sm { font-size: clamp(9px, 0.5rem + 0.15vw, 11px); }
+.text-micro-md { font-size: clamp(10px, 0.55rem + 0.2vw, 13px); }
+.text-micro-lg { font-size: clamp(11px, 0.6rem + 0.2vw, 14px); }
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Safe area for mobile bottom nav */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Print Styles */
+@media print {
+  @page { margin: 1cm; size: A4; }
+  body { background-color: white !important; color: black !important; -webkit-print-color-adjust: exact; }
+  .no-print, nav, aside, header, .fab-button { display: none !important; }
+  main { margin: 0 !important; padding: 0 !important; width: 100% !important; height: auto !important; overflow: visible !important; }
+}
